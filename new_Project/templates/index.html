@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Window of Authorization</title>
+    <link rel="stylesheet" href="/static/master.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+    </style>
+  </head>
+  <body>
+      <form class="wrapper" action="index.html" method="post">
+          <h1>Authorization</h1>
+          <div class="input-box">
+            <label>Login</label><br>
+            <input type="text" id="Username" value="" placeholder="Email or Login" maxlength="25" required><i class='bx bxs-user'></i>
+          </div>
+  
+          <div class="input-box">
+            <label >Password</label><br>
+            <input type="password" id="Password" value="" placeholder="Password" maxlength="25" required><i class='bx bxs-lock-alt' ></i>
+
+          </div>
+          <div class="remember">
+            <label id=above-button><input type="checkbox" id="remember" value="">Remember me</label>
+            <a href="#">Forgot password?</a>
+          </div>
+            <button type="submit" id="button">Send</button>          
+          <div class="register-link">
+            <p>Don't have an account? <a href="#">Register</a></p>
+            
+          </div>
+      </form>
+  </body>
+</html>
