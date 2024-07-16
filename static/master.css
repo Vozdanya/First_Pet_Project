@@ -1,105 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
 * {
-  font-family: "Mochiy Pop One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-size: 18px;
-  background-color: rgb(187, 255, 0);
-  background-image: url('https://images.wallpaperscraft.ru/image/single/fon_makro_zabor_86066_1920x1080.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/tactile_noise.png");
+}
+
+/*header*/
+
+header {
+  font-size: 1.5em;
   color: #ffffff;
-}
-
-.wrapper {
-  background: #0000002c;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 0 20px rgb(0, 0, 0);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid rgb(255, 255, 255);
-  border-radius: 40px;
-  width: 350px;
-  padding: 25px;
-}
-
-.wrapper h1 {
-  text-align: center;
-}
-.wrapper .input-box {
+  background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
-  margin: 10px 0;
-  text-align: center;
-}
-
-.wrapper .input-box input {
-  font-size: 90%;
-  overflow: hidden;
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-  outline-color: #00000041;
-  background: #00000048;
-  border: 2px solid rgb(255, 255, 255);
-  border-radius: 40px;
-  padding: 5px 1em;
-  color: #fff;
-
-}
-
-.wrapper .input-box input::placeholder {
-  font-size: 100%;
-  color:#ffffff81;
-}
-.wrapper .input-box input:checked {
-  font-size: 100%;
-  color:#ff000081;
-}
-.wrapper .input-box input:hover {
-  box-shadow: 0px 5px 10px rgb(0, 0, 0);
-}
-.input-box i {
-  position: absolute;
-  right: 40px;
-  transform: translateY(60%);
-}
-
-.wrapper .remember {
+  padding: 20px 5%;
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
-  padding-bottom: 15px;
 }
 
-.wrapper .remember label input {
-  accent-color: #fff;
-  margin-right: 3px;
+.navigation {
+  display: flex;
+  align-items: center;
 }
 
-.wrapper a {
-  color: rgb(255, 255, 255);
+.navigation a {
+  color: #ffffff;
   text-decoration: none;
+  margin-left: 30px;
+  transition: 0.5s;
+}
+
+.navigation a:hover {
+  transform: scale(1.1);
+}
+
+.navigation a::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  transform: scaleX(0);
+  transition: 0.5s;
+}
+
+.navigation a:hover::before {
+  transform: scaleX(1);
+}
+
+.navigation .btnLogin {
+  font-size: 1em;
+  color: #ffffff;
+  margin-left: 50px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.navigation .btnLogin:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+.navigation .btnLogin:active {
+  transition: 0.1s;
+  transform: scale(0.9);
+}
+
+/*Фон окна с авторизацией*/
+
+.PopupWrapper {
+  visibility: hidden;
+  opacity: 0;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease;
+}
+
+.PopupWrapper.active-popup {
+  visibility: visible;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*Окно с авторизацией*/
+
+.wrapper {
+  color: #ffffff;
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.623);
+  position: relative;
+  padding: 40px;
+  border: 2px solid #ffffff;
+  --radius: 30px;
+  border-radius: 0 var(--radius);
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+
+.wrapper.active {
+  height: 500px;
+}
+
+.btnClose {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  font-size: 40px;
+  padding: 5px 10px;
+  color: black;
+  background-color: #fff;
+  border-bottom-left-radius: var(--radius);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btnClose:hover {
+  background-color: black;
+  color: #fff;
+  outline: 1px solid white;
+}
+
+/*Формы авторизации и регистрации*/
+
+form {
+  width: 400px;
+}
+
+.wrapper .wrapper-login {
+  transition: 0.5s;
+  position: relative;
+  transform: translateX(0);
+}
+
+.wrapper.active .wrapper-login {
+  position: absolute;
+  transform: translateX(-500px);
+}
+
+.wrapper .wrapper-register {
+  transition: 0.5s;
+  position: absolute;
+  transform: translateX(500px);
+}
+
+.wrapper.active .wrapper-register {
+  position: relative;
+  transform: translateX(0);
+}
+
+.wrapper h2 {
+  font-size: 3em;
+  text-align: center;
+}
+
+.wrapper .input-box {
+  font-size: 1.2em;
+  padding-bottom: 5px;
+  position: relative;
+  margin-top: 50px;
+  width: 100%;
+  border-bottom: 2px solid #fff;
+}
+
+.wrapper .input-box input{
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding: 0 35px 0 5px;
+  color: #00e1ff;
+}
+
+.wrapper .input-box label {
+  position: absolute;
+  bottom: 50%;
+  left: 5px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.wrapper .input-box .bx{
+  position: absolute;
+  bottom: 50%;
+  right: 5px;
+  color: #fff;
+}
+
+input:focus + label, input:valid + label {
+  transform: translateY(-100%);
+}
+
+.remember-box, .agree-box {
+  margin: 10px 0;
+}
+
+.remember-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+#remember, #agree {
+  margin-right: 5px;
+  accent-color: black;
+  transition: 1s;
+}
+
+#remember:checked, #agree:checked {
+  outline: 1px solid white;
+}
+
+.wrapper a{
+  color: #00e1ff;
+  font-weight: 500;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: 0.3s;
 }
 
 .wrapper a:hover {
-  text-decoration: underline;
+  border-bottom: 2px solid #00e1ff;
 }
 
-.wrapper #button {
+.btn-submit {
+  font-size: 1.2em;
+  position: relative;
+  margin: 10px 0;
+  color: rgb(0, 0, 0);
   width: 100%;
-  height: 45px;
-  background-color: #00000049;
-  border: 2px solid #fff;
-  color: #ffffff;
-  border-radius: 40px;
+  padding: 10px 0;
+  font-weight: 600;
+  background: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  transition: 0.2s;
   cursor: pointer;
-  font-size: 16px;
 }
-.wrapper #button:hover {
-  box-shadow: 0px 5px 10px rgb(0, 0, 0);
-  
+
+.btn-submit:hover {
+  background-color: #000000;
+  color: white;
+  outline: 1px solid white ;
+}
+.btn-submit:active {
+  transform: scale(0.98);
+}
+
+.register-link, .login-link {
+  text-align: center;
+
+}
+
+/*Основная часть*/
+
+main {
+  margin: 0 10%;
+  padding-bottom: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*footer*/
+
+footer {
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }
