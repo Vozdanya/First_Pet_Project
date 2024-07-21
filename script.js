@@ -2,7 +2,7 @@ const wrapper = document.querySelector('.wrapper')
 const PopupWrapper = document.querySelector('.PopupWrapper')
 const loginLink = document.querySelector('.login-link')
 const registerLink = document.querySelector('.register-link')
-const btnPopup = document.querySelector('.btnLogin')
+const btnPopup = document.querySelector('.btnLoginPopup')
 const btnClose = document.querySelector('.btnClose')
 
 registerLink.addEventListener('click', ()=> {
